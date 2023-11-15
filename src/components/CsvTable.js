@@ -15,7 +15,6 @@ const CsvTable = ({ filteredData, onReset }) => {
 
   return (
     <div>
-      <button onClick={onReset}>Reset</button>
       <table className="csv-table">
         <thead>
           <tr>

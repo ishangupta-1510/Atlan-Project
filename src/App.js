@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import CsvTable from "./components/CsvTable";
@@ -8,9 +7,14 @@ const App = () => {
   const [csvData, setCsvData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
+  const [table, setTable] = useState("/employees.csv");
 
   useEffect(() => {
-    Papa.parse("/employees.csv", {
+    loadCsvData();
+  }, [table]);
+
+  const loadCsvData = () => {
+    Papa.parse(table, {
       download: true,
       complete: (result) => {
         const data = result.data.slice(1); // Skip header row
@@ -19,9 +23,10 @@ const App = () => {
         setOriginalData(data);
       },
     });
-  }, []);
+  };
 
-  const handleQuerySubmit = (query, queryType) => {
+  const handleQuerySubmit = (selectedTable, query, queryType) => {
+    setTable(selectedTable);
     switch (queryType) {
       case "select":
         runSelectQuery(query);
@@ -38,10 +43,13 @@ const App = () => {
   };
 
   const runSelectQuery = (column) => {
-    const selectedColumnIndex = csvData[0].indexOf(column);
+    const selectedColumnIndex = parseInt(column);
+
     if (selectedColumnIndex !== -1) {
-      const selectedData = csvData.map((row) => [row[selectedColumnIndex]]);
-      setFilteredData(selectedData);
+      const newCsvData = csvData.filter(
+        (_, index) => index + 1 === selectedColumnIndex
+      );
+      setFilteredData(newCsvData);
     }
   };
 
@@ -71,6 +79,13 @@ const App = () => {
   return (
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
       <h1>CSV Query App</h1>
+      <div>
+        <label>Select Table: </label>
+        <select onChange={(e) => setTable(e.target.value)} value={table}>
+          <option value="/employees.csv">Employees</option>
+          <option value="/customers.csv">Customers</option>
+        </select>
+      </div>
       <QueryForm onQuerySubmit={handleQuerySubmit} />
       <CsvTable filteredData={filteredData} />
     </div>
