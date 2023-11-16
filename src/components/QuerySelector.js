@@ -72,7 +72,7 @@ function QuerySelector({ filteredData, setFilteredData }) {
       {showInput && (
         <Form onSubmit={handleFormSubmit}>
           <Form.Group controlId="inputValue" className="mt-3">
-            <Form.Label>Enter the column number:</Form.Label>
+            <Form.Label>Enter the column number to {selectedQuery}:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter value..."
@@ -80,7 +80,11 @@ function QuerySelector({ filteredData, setFilteredData }) {
               onChange={handleInputChange}
             />
           </Form.Group>
-          <button type="submit" className="styled-button">
+          <button
+            style={{ marginTop: "10px" }}
+            type="submit"
+            className="styled-button"
+          >
             Run Query
           </button>
         </Form>

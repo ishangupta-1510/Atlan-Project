@@ -10,7 +10,10 @@ import Navbr from "./components/Navbar";
 const App = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [table, setTable] = useState("/employees.csv");
-
+  const [query, setQuery] = useState("");
+  const handleSelectQuery = (selectedQuery) => {
+    setQuery(selectedQuery);
+  };
   useEffect(() => {
     loadCsvData();
   }, [table]);
@@ -38,9 +41,13 @@ const App = () => {
               filteredData={filteredData}
               setFilteredData={setFilteredData}
             />
-            <QueryForm onQuerySubmit={handleQuerySubmit} />
+            <QueryForm
+              onQuerySubmit={handleQuerySubmit}
+              onSelectQuery={handleSelectQuery}
+            />
           </div>
-          <QueryInput />
+
+          <QueryInput setValue={setQuery} value={query} />
         </div>
         <div className="right">
           <CsvTable filteredData={filteredData} />

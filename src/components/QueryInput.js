@@ -1,43 +1,48 @@
-import React, { useState } from "react";
-import Badge from "react-bootstrap/Badge";
-import ListGroup from "react-bootstrap/ListGroup";
+import React from "react";
+import AceEditor from "react-ace";
+import "ace-builds/src-min-noconflict/mode-mysql";
+import "ace-builds/src-noconflict/theme-sqlserver";
+import "ace-builds/src-min-noconflict/ext-language_tools";
 
-const QueryInput = ({ onQuerySubmit }) => {
-  const [query, setQuery] = useState("");
-  const [queryType, setQueryType] = useState("select");
-
-  const handleQueryChange = (e) => setQuery(e.target.value);
-  const handleQueryTypeChange = (e) => setQueryType(e.target.value);
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    onQuerySubmit(query, queryType);
-    setQuery("");
-  };
-
-  const handleQueryItemClick = (clickedQuery) => {
-    setQuery(clickedQuery);
-  };
-
+function QueryInput({ setValue, value, onRun, onClear, onResetTable }) {
   return (
-    <div>
-      <h2>OR</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label className="code-editor-label">
-          Write SQL Query:
-          <input
-            type="text"
-            value={query}
-            onChange={handleQueryChange}
-            className="code-editor-input"
-          />
-        </label>
-        <button type="submit" className="styled-button">
-          Run Query
+    <div className="ace">
+      <AceEditor
+        id="editor"
+        aria-label="editor"
+        mode="mysql"
+        theme="sqlserver"
+        name="editor"
+        width="100%"
+        fontSize={18}
+        minLines={15}
+        maxLines={10}
+        showPrintMargin={false}
+        showGutter
+        placeholder="Write your query here..."
+        editorProps={{ $blockScrolling: true }}
+        setOptions={{
+          enableBasicAutocompletion: true,
+          enableLiveAutocompletion: true,
+          enableSnippets: true,
+        }}
+        value={value}
+        onChange={(value) => setValue(value)}
+        showLineNumbers
+      />
+      <div className="button-container">
+        <button className="run-button" onClick={onRun}>
+          Run
         </button>
-      </form>
+        <button className="clear-button" onClick={onClear}>
+          Clear
+        </button>
+        <button className="reset-button" onClick={onResetTable}>
+          Reset Table
+        </button>
+      </div>
     </div>
   );
-};
+}
 
 export default QueryInput;

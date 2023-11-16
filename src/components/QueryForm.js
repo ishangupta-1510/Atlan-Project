@@ -2,21 +2,10 @@ import React, { useState } from "react";
 import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 
-const QueryForm = ({ onQuerySubmit }) => {
-  const [query, setQuery] = useState("");
-  const [queryType, setQueryType] = useState("select");
-
-  const handleQueryChange = (e) => setQuery(e.target.value);
-  const handleQueryTypeChange = (e) => setQueryType(e.target.value);
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    onQuerySubmit(query, queryType);
-    setQuery("");
-  };
-
+const QueryForm = ({ onQuerySubmit, onSelectQuery }) => {
   const handleQueryItemClick = (clickedQuery) => {
-    setQuery(clickedQuery);
+    onSelectQuery(clickedQuery);
+    onQuerySubmit(clickedQuery, "select"); // Assuming "select" as the default query type
   };
 
   return (
