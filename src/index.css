@@ -96,8 +96,10 @@ code {
 
 /* Add this CSS to your stylesheet */
 .table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
-  padding-right: 40px;
   overflow-x: auto; /* Add horizontal scroll if needed */
 }
 

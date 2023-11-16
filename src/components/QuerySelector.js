@@ -20,16 +20,16 @@ function QuerySelector({ filteredData, setFilteredData }) {
     console.log("Selected Query:", selectedQuery);
     console.log("Input Value:", e.target.elements.inputValue.value);
     if (selectedQuery === "SELECT") {
-      const columnIndex = parseInt(input) - 1;
-      console.log(filteredData);
+      const columnIndex = parseInt(input);
+      console.log(columnIndex);
       const newFilteredData = filteredData.filter(
-        (_, i) => i === 0 || i === columnIndex + 1
+        (_, i) => i === 0 || columnIndex === parseInt(filteredData[i][0])
       );
       setFilteredData(newFilteredData);
     } else if (selectedQuery === "DELETE") {
       const columnIndex = parseInt(input) - 1;
       const newFilteredData = filteredData.filter(
-        (_, i) => i !== columnIndex + 1
+        (_, i) => columnIndex + 1 !== parseInt(filteredData[i][0])
       );
       setFilteredData(newFilteredData);
     }

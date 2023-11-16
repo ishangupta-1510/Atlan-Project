@@ -9,6 +9,7 @@ import Navbr from "./components/Navbar";
 
 const App = () => {
   const [filteredData, setFilteredData] = useState([]);
+  const [initData, setInitData] = useState([]);
   const [table, setTable] = useState("/employees.csv");
   const [query, setQuery] = useState("");
   const handleSelectQuery = (selectedQuery) => {
@@ -24,6 +25,7 @@ const App = () => {
       complete: (result) => {
         const data = result.data;
         setFilteredData(data);
+        setInitData(data);
       },
     });
   };
@@ -47,7 +49,13 @@ const App = () => {
             />
           </div>
 
-          <QueryInput setValue={setQuery} value={query} />
+          <QueryInput
+            setValue={setQuery}
+            value={query}
+            filteredData={filteredData}
+            setFilteredData={setFilteredData}
+            initData={initData}
+          />
         </div>
         <div className="right">
           <CsvTable filteredData={filteredData} />

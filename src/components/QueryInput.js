@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-min-noconflict/mode-mysql";
 import "ace-builds/src-noconflict/theme-sqlserver";
 import "ace-builds/src-min-noconflict/ext-language_tools";
+import Moda from "./Moda";
 
-function QueryInput({ setValue, value, onRun, onClear, onResetTable }) {
+function QueryInput({
+  setValue,
+  value,
+  filteredData,
+  setFilteredData,
+  initData,
+}) {
+  const onResetTable = () => {
+    setFilteredData(initData);
+  };
+  const onClear = () => {
+    setValue("");
+  };
+  const [show, setShow] = useState(false);
+  const onRun = () => {
+    if (value === "SELECT * FROM table") {
+      setFilteredData(initData);
+    } else if (value === "SELECT * FROM TABLE WHERE S.NO. = 6") {
+      // console.log(filteredData[1][0]);
+      const newFilteredData = filteredData.filter(
+        (_, i) => i === 0 || parseInt(filteredData[i][0]) === 6
+      );
+      setFilteredData(newFilteredData);
+    } else if (value === "DELETE * FROM TABLE WHERE S.NO. = 3") {
+      const newFilteredData = filteredData.filter(
+        (_, i) => 3 !== parseInt(filteredData[i][0])
+      );
+      setFilteredData(newFilteredData);
+    } else {
+      setShow(true);
+    }
+  };
   return (
     <div className="ace">
+      {show && <Moda show={show} setShow={setShow} />}
       <AceEditor
         id="editor"
         aria-label="editor"
