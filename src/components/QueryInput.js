@@ -23,7 +23,7 @@ function QueryInput({
   };
   const [show, setShow] = useState(false);
   const onRun = () => {
-    if (value === "SELECT * FROM table") {
+    if (value === "SELECT * FROM TABLE") {
       setFilteredData(initData);
     } else if (value === "SELECT * FROM TABLE WHERE S.NO. = 6") {
       // console.log(filteredData[1][0]);
@@ -43,7 +43,7 @@ function QueryInput({
   };
   return (
     <div className="ace">
-      {show && <Moda show={show} setShow={setShow} />}
+      {show && <Moda show={show} value setShow={setShow} />}
       <AceEditor
         id="editor"
         aria-label="editor"

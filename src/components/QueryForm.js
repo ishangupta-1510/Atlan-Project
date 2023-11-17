@@ -16,10 +16,10 @@ const QueryForm = ({ onQuerySubmit, onSelectQuery }) => {
         <ListGroup.Item
           as="li"
           className="d-flex justify-content-between align-items-start"
-          onClick={() => handleQueryItemClick("SELECT * FROM table")}
+          onClick={() => handleQueryItemClick("SELECT * FROM TABLE")}
           style={{ cursor: "pointer", transition: "background-color 0.3s" }}
         >
-          <div className="ms-1 me-auto">SELECT * FROM table</div>
+          <div className="ms-1 me-auto">SELECT * FROM TABLE</div>
         </ListGroup.Item>
         <ListGroup.Item
           as="li"
@@ -31,7 +31,6 @@ const QueryForm = ({ onQuerySubmit, onSelectQuery }) => {
         >
           <div className="ms-1 me-auto">
             SELECT * FROM TABLE WHERE S.NO. = 6
-
           </div>
         </ListGroup.Item>
         <ListGroup.Item
