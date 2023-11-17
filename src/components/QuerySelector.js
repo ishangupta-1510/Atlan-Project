@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Dropdown, Form } from "react-bootstrap";
 
-function QuerySelector({ filteredData, setFilteredData }) {
+function QuerySelector({
+  filteredData,
+  setFilteredData,
+  initData,
+  setInitData,
+}) {
   const [showInput, setShowInput] = useState(false);
   const [selectedQuery, setSelectedQuery] = useState("SELECT");
   const [input, setInput] = useState(1);
@@ -22,16 +27,17 @@ function QuerySelector({ filteredData, setFilteredData }) {
     if (selectedQuery === "SELECT") {
       const columnIndex = parseInt(input);
       console.log(columnIndex);
-      const newFilteredData = filteredData.filter(
-        (_, i) => i === 0 || columnIndex === parseInt(filteredData[i][0])
+      const newFilteredData = initData.filter(
+        (_, i) => i === 0 || columnIndex === parseInt(initData[i][0])
       );
       setFilteredData(newFilteredData);
     } else if (selectedQuery === "DELETE") {
       const columnIndex = parseInt(input) - 1;
-      const newFilteredData = filteredData.filter(
-        (_, i) => columnIndex + 1 !== parseInt(filteredData[i][0])
+      const newFilteredData = initData.filter(
+        (_, i) => columnIndex + 1 !== parseInt(initData[i][0])
       );
       setFilteredData(newFilteredData);
+      setInitData(newFilteredData);
     }
   };
 

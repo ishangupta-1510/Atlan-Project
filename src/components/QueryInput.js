@@ -8,12 +8,15 @@ import Moda from "./Moda";
 function QueryInput({
   setValue,
   value,
+  origData,
   filteredData,
   setFilteredData,
   initData,
+  setInitData,
 }) {
   const onResetTable = () => {
-    setFilteredData(initData);
+    setFilteredData(origData);
+    setInitData(origData);
   };
   const onClear = () => {
     setValue("");
@@ -29,10 +32,11 @@ function QueryInput({
       );
       setFilteredData(newFilteredData);
     } else if (value === "DELETE * FROM TABLE WHERE S.NO. = 3") {
-      const newFilteredData = filteredData.filter(
-        (_, i) => 3 !== parseInt(filteredData[i][0])
+      const newFilteredData = initData.filter(
+        (_, i) => 3 !== parseInt(initData[i][0])
       );
       setFilteredData(newFilteredData);
+      setInitData(newFilteredData);
     } else {
       setShow(true);
     }

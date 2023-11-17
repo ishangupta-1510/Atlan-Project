@@ -1,8 +1,15 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 
-function TableSelector({ setTable }) {
+function TableSelector({
+  setTable,
+  origData,
+  setFilteredData,
+  setInitData,
+}) {
   const handleTableChange = (selectedTable) => {
+    setFilteredData(origData);
+    setInitData(origData);
     setTable(selectedTable);
   };
 

@@ -8,6 +8,7 @@ import QueryInput from "./components/QueryInput";
 import Navbr from "./components/Navbar";
 
 const App = () => {
+  const [origData, setOrigData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [initData, setInitData] = useState([]);
   const [table, setTable] = useState("/employees.csv");
@@ -26,6 +27,7 @@ const App = () => {
         const data = result.data;
         setFilteredData(data);
         setInitData(data);
+        setOrigData(data);
       },
     });
   };
@@ -38,10 +40,17 @@ const App = () => {
       <div className="main">
         <div className="gri">
           <div className="left">
-            <TableSelector setTable={setTable} />
+            <TableSelector
+              setTable={setTable}
+              origData={origData}
+              setFilteredData={setFilteredData}
+              setInitData={setInitData}
+            />
             <QuerySelector
               filteredData={filteredData}
               setFilteredData={setFilteredData}
+              initData={initData}
+              setInitData={setInitData}
             />
             <QueryForm
               onQuerySubmit={handleQuerySubmit}
@@ -52,9 +61,11 @@ const App = () => {
           <QueryInput
             setValue={setQuery}
             value={query}
+            origData={origData}
             filteredData={filteredData}
             setFilteredData={setFilteredData}
             initData={initData}
+            setInitData={setInitData}
           />
         </div>
         <div className="right">
