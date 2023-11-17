@@ -5,6 +5,7 @@ import "ace-builds/src-noconflict/theme-sqlserver";
 import "ace-builds/src-min-noconflict/ext-language_tools";
 import Moda from "./Moda";
 
+// Component for inputting and running queries
 function QueryInput({
   setValue,
   value,
@@ -14,36 +15,49 @@ function QueryInput({
   initData,
   setInitData,
 }) {
+  // Function to reset the table data to the original data
   const onResetTable = () => {
     setFilteredData(origData);
     setInitData(origData);
   };
+
+  // Function to clear the query input
   const onClear = () => {
     setValue("");
   };
+
+  // State to manage the modal visibility
   const [show, setShow] = useState(false);
+
+  // Function to run the query
   const onRun = () => {
     if (value === "SELECT * FROM TABLE") {
+      // Show all rows when the query is for selecting all columns
       setFilteredData(initData);
     } else if (value === "SELECT * FROM TABLE WHERE S.NO. = 6") {
-      // console.log(filteredData[1][0]);
+      // Filter rows based on a specific condition (example condition)
       const newFilteredData = filteredData.filter(
         (_, i) => i === 0 || parseInt(filteredData[i][0]) === 6
       );
       setFilteredData(newFilteredData);
     } else if (value === "DELETE * FROM TABLE WHERE S.NO. = 3") {
+      // Delete rows based on a specific condition (example condition)
       const newFilteredData = initData.filter(
         (_, i) => 3 !== parseInt(initData[i][0])
       );
       setFilteredData(newFilteredData);
       setInitData(newFilteredData);
     } else {
+      // Show a modal for handling unsupported queries
       setShow(true);
     }
   };
+
   return (
     <div className="ace">
+      {/* Modal component for handling unsupported queries */}
       {show && <Moda show={show} value setShow={setShow} />}
+      {/* AceEditor component for inputting SQL queries */}
       <AceEditor
         id="editor"
         aria-label="editor"
@@ -67,6 +81,7 @@ function QueryInput({
         onChange={(value) => setValue(value)}
         showLineNumbers
       />
+      {/* Button container for running, clearing, and resetting */}
       <div className="button-container">
         <button className="run-button" onClick={onRun}>
           Run

@@ -12,7 +12,6 @@ code {
     monospace;
 }
 
-/* Add this to your CSS file or use inline styles in the component */
 .csv-table {
   border-collapse: collapse;
   width: 100%;
@@ -81,8 +80,7 @@ code {
 }
 
 .styled-button {
-  /* Add your button styling here */
-  background-color: #4caf50; /* Green color */
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -91,16 +89,15 @@ code {
 }
 
 .styled-button:hover {
-  background-color: #45a049; /* Darker green color on hover */
+  background-color: #45a049;
 }
 
-/* Add this CSS to your stylesheet */
 .table-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  overflow-x: auto; /* Add horizontal scroll if needed */
+  overflow-x: auto;
 }
 
 .csv-table {
@@ -121,14 +118,13 @@ code {
   background-color: #f2f2f2;
 }
 
-/* Navbar Container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4; /* Grey background color */
-  color: #333; /* Text color */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Increased box shadow for depth */
+  background-color: #f4f4f4; 
+  color: #333; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 /* Navbar Brand */
