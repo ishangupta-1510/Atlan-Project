@@ -60,7 +60,8 @@ Usage
 2. Open your browser and visit http://localhost:3000 to view the application.
 
 Performance
-Page Load Time: The page load time has been optimized for a smooth user experience.
+Page Load Time: The page load time has been optimized for a smooth user experience and checked using PageSpeed insights 
+![Screenshot](Screenshot.png)
 Optimizations:
    1. **React Table for Efficient Rendering:**
         - To handle large datasets without compromising performance, the application utilizes [React Table]- a lightweight and fast table library for React.
