@@ -36,15 +36,18 @@ The application is deployed on Netlify at https://magnificent-pegasus-4bd378.net
 
 ## Folder Structure
 
+```markdown
+/src
 |-- components
-|   |-- Moda.js
-|   |-- Navbar.js
-|   |-- CsvTable.js
-|   |-- QueryForm.js
-|   |-- QuerySelector.js
-|   |-- QueryInput.js
-|   |-- TableSelector.js
+| |-- Moda.js
+| |-- Navbar.js
+| |-- CsvTable.js
+| |-- QueryForm.js
+| |-- QuerySelector.js
+| |-- QueryInput.js
+| |-- TableSelector.js
 |-- App.js
+```
 
 Installation
 1. Clone the repository: git clone https://github.com/ishangupta-1510/Atlan-Project
