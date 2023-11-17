@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
+import Navbr from "./components/Navbar";
 import CsvTable from "./components/CsvTable";
 import QueryForm from "./components/QueryForm";
 import QuerySelector from "./components/QuerySelector";
 import TableSelector from "./components/TableSelector";
 import QueryInput from "./components/QueryInput";
-import Navbr from "./components/Navbar";
 
 const App = () => {
   const [origData, setOrigData] = useState([]);
@@ -32,8 +32,6 @@ const App = () => {
     });
   };
 
-  const handleQuerySubmit = (selectedTable, query, queryType) => {};
-
   return (
     <div>
       <Navbr />
@@ -52,10 +50,7 @@ const App = () => {
               initData={initData}
               setInitData={setInitData}
             />
-            <QueryForm
-              onQuerySubmit={handleQuerySubmit}
-              onSelectQuery={handleSelectQuery}
-            />
+            <QueryForm onSelectQuery={handleSelectQuery} />
           </div>
 
           <QueryInput
