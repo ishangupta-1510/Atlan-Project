@@ -4,13 +4,18 @@
 
 This web-based application allows users to run SQL-like queries and view the corresponding results. The application features a space for accepting SQL queries, predefined queries, and tables displaying mock data.
 
+Deployment
+The application is deployed on Netlify at https://magnificent-pegasus-4bd378.netlify.app/
+
 ## Technologies Used
 
 - React
+- React Hooks
 - PapaParse (for CSV parsing)
 - React Bootstrap
 - AceEditor
 - Other relevant dependencies
+- React Table
 
 ## Features
 
@@ -54,9 +59,14 @@ Usage
 Performance
 Page Load Time: The page load time has been optimized for a smooth user experience.
 Optimizations:
+   1. **React Table for Efficient Rendering:**
+        - To handle large datasets without compromising performance, the application utilizes [React Table]- a lightweight and fast table library for React.
+          
+  2. **Lazy Loading and Code Splitting:**
+     - Code splitting techniques have been employed to ensure that only essential code is loaded initially, reducing the initial payload. This includes lazy loading components and features to be loaded on-demand, improving the overall load time.
 
-Deployment
-The application is deployed on Netlify at https://magnificent-pegasus-4bd378.netlify.app/
+  3. **Minification and Compression:**
+     - All static assets, including JavaScript and CSS files, are minified and compressed to reduce file sizes. This contributes significantly to faster loading times, especially for users with slower internet connections.
 
-Additional Notes
-Libraries Used :
+  4. **Removed all the unwanted/unused functions and components**
+     - Removed all the unwanted/unused functions and components to reduce the wait time and improve the application performance.
