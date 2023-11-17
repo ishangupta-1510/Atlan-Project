@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Badge from "react-bootstrap/Badge";
+import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 
 const QueryForm = ({ onQuerySubmit, onSelectQuery }) => {
