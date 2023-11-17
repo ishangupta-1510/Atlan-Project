@@ -56,7 +56,7 @@ Page Load Time: The page load time has been optimized for a smooth user experien
 Optimizations:
 
 Deployment
-The application is deployed on Netlify at .
+The application is deployed on Netlify at https://magnificent-pegasus-4bd378.netlify.app/
 
 Additional Notes
 Libraries Used :
