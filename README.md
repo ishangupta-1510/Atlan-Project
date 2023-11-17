@@ -2,7 +2,8 @@
 
 ## Overview
 
-This web-based application allows users to run SQL-like queries and view the corresponding results. The application features a space for accepting SQL queries, predefined queries, and tables displaying mock data.
+This web-based application allows users to run SQL-like queries to SELECT OR DELETE and view the corresponding results. The application features a space for accepting SQL queries, predefined queries, and tables displaying mock data.
+The user can select to print the value of a particular column and also delete the value in column which when selected would not show the deleted result. The user is also provided with an option to reset the table to run the queries again.
 
 Deployment
 The application is deployed on Netlify at https://magnificent-pegasus-4bd378.netlify.app/
