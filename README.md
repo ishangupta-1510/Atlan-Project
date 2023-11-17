@@ -36,7 +36,6 @@ The application is deployed on Netlify at https://magnificent-pegasus-4bd378.net
 
 ## Folder Structure
 
-/src
 |-- components
 |   |-- Moda.js
 |   |-- Navbar.js
@@ -53,7 +52,7 @@ Installation
 3. npm install
 
 Usage
-1. Start the development server:npm start
+1. Start the development server: npm start
 2. Open your browser and visit http://localhost:3000 to view the application.
 
 Performance
