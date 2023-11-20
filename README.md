@@ -6,7 +6,7 @@ This web-based application allows users to run SQL-like queries to SELECT OR DEL
 The user can select to print the value of a particular column and also delete the value in column which when selected would not show the deleted result. The user is also provided with an option to reset the table to run the queries again.
 
 Deployment
-The application is deployed on Netlify at https://magnificent-pegasus-4bd378.netlify.app/
+The application is deployed on Netlify at [https://magnificent-pegasus-4bd378.netlify.app/](https://65576ce263f75b26d03808e2--fascinating-faun-a3469f.netlify.app/)
 
 ## Technologies Used
 
@@ -15,7 +15,6 @@ The application is deployed on Netlify at https://magnificent-pegasus-4bd378.net
 - PapaParse (for CSV parsing)
 - React Bootstrap
 - AceEditor
-- Other relevant dependencies
 - React Table
 
 ## Features
